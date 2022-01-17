@@ -8,7 +8,7 @@ struct Data {
 	Data() {};
 	Data(int node, int weight) : node(node), weight(weight) {};
 	bool operator<(const Data d) const {
-		return weight > d.weight; // ¿À¸§Â÷¼ø Á¤·Ä½Ã. 
+		return weight > d.weight; // Â¿Ã€Â¸Â§Ã‚Ã·Â¼Ã¸ ÃÂ¤Â·Ã„Â½Ãƒ. 
 	}
 };
 
