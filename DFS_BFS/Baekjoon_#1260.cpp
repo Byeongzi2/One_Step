@@ -15,9 +15,7 @@ void bfs(int x) {
 		curr = q.front();
 		q.pop();
 		cout<<curr<<" ";
-		int next;
-		for(int i=0;i<v[curr].size();i++) {
-			next=v[curr].at(i);
+		for(int next : v[curr]) {
 			if(!visited[next]) {
 				visited[next] = true;
 				q.push(next);
@@ -29,9 +27,7 @@ void bfs(int x) {
 void dfs(int x) {
 	visited[x] = true;
 	cout<<x<<" ";
-	int next;
-	for(int i=0; i<v[x].size();i++) {
-		next = v[x].at(i);
+	for(int next: v[x]) {
 		if(!visited[next]) dfs(next);
 	}
 }
