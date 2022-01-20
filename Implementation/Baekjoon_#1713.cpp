@@ -32,18 +32,7 @@ void init() {
 int main() {
 	ios::sync_with_stdio(0);
 	cin.tie(0);
-	/*
-	pq.push(Data(2,1,0));
-	pq.push(Data(1,3,1));
-	pq.push(Data(4,1,2));
-	Data curr;
-	while(!pq.empty()) {
-		curr=pq.top();
-		cout<<"num: "<<curr.num<<"/ vote: "<<curr.vote<<"/ time: "<<curr.time<<'\n';
-		pq.pop();
-	}
-	*/
-	
+
 	cin>>N>>total;
 	int tmp,cnt=0;
 	Data curr;
