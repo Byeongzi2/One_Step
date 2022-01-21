@@ -1,0 +1,19 @@
+[C++ STL] unique함수와 erase 함수 사용법(벡터 내 중복 원소 삭제)
+
+• 헤더 : #include<algorithm>
+
+• 사용법
+
+1. input받은 vector를  " sort " 해야함. (sort 꼭 한 다음 unique 함수 사용!)
+   -> sort(v.begin(), v.end());
+
+2. unique 함수의 return 값은 "버릴 원소들 중 첫 번째 원소의 위치"이기 때문에 꼭 제거 후 vector 사용해줘야 함.
+   -> v.erase(unique(v.begin(), v.end()), v.end())
+
+
+========================================================
+<정리>
+ 
+1) unique함수는 erase 함수랑 같이 사용!
+2) v.erase(unique함수 반환값(=삭제할 시작 주소) , 끝 주소) 
+	=> unique(시작주소, 끝 주소) 
