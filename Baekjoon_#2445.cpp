@@ -1,24 +1,24 @@
 #include<bits/stdc++.h>
 using namespace std;
-int N;
+int N,MAXN;
 
-void star(int i) {
-	for(int j=0;j<N-i;j++) cout<<' ';
-	for(int j=0;j<i;j++) cout<<'*';
+void star(int start) {
+	for(int j=0;j<start;j++) cout<<' ';
+	for(int j=0;j<(MAXN-2*start);j++) cout<<'*';
+	cout<<'\n';
 }
-
 int main() {
 	ios::sync_with_stdio(0);
 	cin.tie(0);
 	
 	cin>>N;
-	for(int i=1;i<=N;i++) {
+	MAXN = 2*N-1;
+	for(int i=0;i<N;i++) {
 		star(i);
-		cout<<'\n';
 	}
-	for(int i=N-1;i>0;i--) {
+	for(int i=N-2;i>=0;i--) {
 		star(i);
-		cout<<'\n';
 	}
+	
 	return 0;
 }
