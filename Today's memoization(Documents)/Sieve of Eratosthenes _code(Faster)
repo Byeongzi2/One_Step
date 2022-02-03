@@ -1,0 +1,42 @@
+#include <cstdio>
+#include <vector>
+#include <algorithm>
+using namespace std;
+const int MAX = 1000;
+ 
+int main(){
+    vector<int> prime(1, 2);
+    bool isPrime[MAX+1];
+    fill(isPrime+2, isPrime+MAX+1, true);
+    for(int i=4; i<=MAX; i+=2)
+        isPrime[i] = false;
+    for(int i=3; i<=MAX; i+=2){
+        if(!isPrime[i]) continue;
+        prime.push_back(i);
+        for(int j=i*i; j<=MAX; j+=i*2)
+            isPrime[j] = false;
+    }
+    for(int i=0; i<prime.size(); i++){
+        printf("%4d", prime[i]);
+        if(i%10 == 9 || i == prime.size()-1) puts("");
+    }
+}
+
+
+
+// 11번줄 설명
+    int i=4부터 시작해서 i+=2로 넘어가는 이유
+    : 2는 무조건 소수니까 그 다음 짝수인 4부터 모든 짝수들은 소수가 무조건 아니기 때문에 소수 판별 false로 설정.
+    
+// 13번줄 설명
+    int i=3부터 시작해서 i+=2로 넘어가는 이유
+    : 3부터 MAX값까지 홀수 값들만 훑으면서 소수 판별 하기 위해.
+    
+// 16번줄 설명
+    int j=i*i부터 시작해서 j+=i*2로 넘어가는 이유
+    : 예를 들어 i가 7이라고 가정한다면, 7 * (1~6) 까지는 생각할 필요가 없음. -> 이미 i에서 7이전인 1~6까지의 숫자들과
+      그 배수들을 모두 확인 했기 때문에 중복확인을 피하기 위해 i는 i부터만 확인하면 됨.
+    j+=i*2 인 이유  
+    : 어짜피 i는 홀수만이기 때문에 그냥 j+=i를 해버리면  홀수+홀수 (=짝수)의 경우도 check하기 때문에 시간 낭비.
+      2를 제외한 짝수는 소수가 아니기 때문.
+      So, i*2를 더함으로써 홀수+짝수 (=홀수)만을 check하면서 시간 save 가능.
