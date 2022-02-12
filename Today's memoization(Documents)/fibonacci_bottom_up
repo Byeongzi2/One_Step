@@ -7,6 +7,7 @@ int main(){
     scanf("%d", &N);
     vector<int> dp(N+3, 0);
     dp[1] = 1;
+    // 살짝 변형해서 bottom up 방식 사용. for문 한번에 fibonacci 계산 가능
     for(int i=0; i<=N; i++){
         dp[i+2] += dp[i];
         dp[i+1] += dp[i];
