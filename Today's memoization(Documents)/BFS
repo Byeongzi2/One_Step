@@ -1,0 +1,29 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define MAXN 1001
+
+vector<int> v[MAXN];
+bool visited[MAXN];
+void bfs(int idx) {
+  queue<int> q;
+  visited[idx] = true;
+  q.push(idx);
+  int curr;
+  while(!q.empty()) {
+    curr = q.front();
+    for(int i=0;i<v[curr].size();i++){
+      if(visited[curr]) continue;
+      visited[curr] = true;
+      q.push(idx);
+      
+    }
+  }
+}
+
+int main {
+  ios::sync_with_stdio(0);
+  cin.tie(0);
+  
+  bfs(0);
+
+}
