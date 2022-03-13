@@ -1,5 +1,5 @@
 //돌리고 디버깅 필요
-
+// 
 #include<bits/stdc++.h>
 using namespace std;
 #define MAXN 51
