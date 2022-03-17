@@ -1,0 +1,13 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+
+// A,B 크기 때문에 long long 안쓰면 오버플로우 발생.
+int main() {
+	ios::sync_with_stdio(0);
+	cin.tie(0);
+	ll A,B;
+	cin>>A>>B;
+	cout<<(A+B)*(abs(A-B)+1)/2;
+	return 0;
+}
