@@ -2,7 +2,7 @@
 using namespace std;
 #define MAXN 50001
 #define INF 987654321
-
+// 다익스트라 복습
 struct Data {
 	int node,weight;
 	Data(){};
