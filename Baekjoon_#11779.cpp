@@ -3,6 +3,7 @@ using namespace std;
 #define MAXN 1001
 #define ll long long
 #define INF 1e10+1
+// 아... 소마 포폴쓰느라 업뎃못했다..........
 struct Data {
 	int node;
 	ll weight;
