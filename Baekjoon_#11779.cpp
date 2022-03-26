@@ -4,6 +4,7 @@ using namespace std;
 #define ll long long
 #define INF 1e10+1
 // 아... 소마 포폴쓰느라 업뎃못했다..........
+// 담주 수요일까지 소마준비때문에 바쁠듯 😥
 struct Data {
 	int node;
 	ll weight;
