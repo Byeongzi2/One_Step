@@ -1,0 +1,70 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define MAXN 1001
+#define INF 987654321
+
+struct Data {
+   int x, y;
+   Data(){};
+   Data(int x, int y) : x(x), y(y) {};
+};
+
+int N,M;
+int mapp[MAXN][MAXN],dist[MAXN][MAXN];
+int dxy[4]={1,-1,0,0};
+int bfs(int x, int y) {
+   queue<Data> q;
+   dist[x][y] = 1;
+   q.push(Data(x,y));
+   Data curr,next;
+   while(!q.empty()) {
+      curr = q.front();
+      q.pop();
+      int nx,ny;
+      for(int i=0;i<4;i++) {
+         nx = curr.x+dxy[i];
+         ny = curr.y+dxy[3-i];
+         if(nx<0||nx>=N||ny<0||ny>=M) continue;
+         if(dist[nx][ny]!=INF||mapp[nx][ny]==1) continue;
+         dist[nx][ny] = dist[curr.x][curr.y]+1;
+         q.push(Data(nx,ny));
+      }
+   }
+   return dist[N-1][M-1];
+}
+void init() {
+   for(int i=0;i<=N;i++) {
+      for(int j=0;j<=M;j++) {
+         dist[i][j] = INF;
+      }
+   }
+}
+int main() {
+   ios::sync_with_stdio(0);
+   cin.tie(0);
+   vector<Data> v;
+   cin>>N>>M;
+   for(int i=0;i<N;i++) {
+      for(int j=0;j<M;j++) {
+         cin>>mapp[i][j];
+         if(mapp[i][j]==1) v.push_back(Data(i,j));
+         dist[i][j] = INF;
+      }
+   }
+   int MINdist=INF;
+   int tmp = bfs(0,0);
+   if(tmp<MINdist) MINdist = tmp;
+   init();
+   Data curr;
+   for(int i=0;i<v.size();i++) {
+      curr = v[i];
+      mapp[curr.x][curr.y] = 0;
+      tmp = bfs(0,0);
+      if(tmp<MINdist) MINdist = tmp;
+      mapp[curr.x][curr.y] = 1;
+      init();
+   }
+   if(MINdist==INF) cout<<'-1';
+   else cout<<MINdist;
+   return 0;
+}
