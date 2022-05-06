@@ -8,7 +8,6 @@ struct Data {
 	Data(int x, int y) : x(x), y(y) {};
 };
 int M,N;
-string s;
 int mapp[MAXN][MAXN];
 bool visited[MAXN][MAXN];
 int dxy[4] = {-1,1,0,0};
@@ -60,8 +59,10 @@ int main() {
 	cin.tie(0);
 	
 	cin>>M>>N;
+	string s;
 	cin>>s;
 	vector<Data> target;
+	
 	for(int i=0;i<N;i++) {
 		mapp[0][i] = s[i]-'0';
 		if(mapp[0][i]==0) target.push_back(Data(0,i));
@@ -69,10 +70,11 @@ int main() {
 	for(int i=1;i<M;i++) {
 		cin>>s;
 		for(int j=0;j<N;j++) {
-			mapp[i][j] = s[i]-'0';
+			mapp[i][j] = s[j]-'0';
 		}
 	}
 
+	
 	for(int i=0;i<target.size();i++) {
 		dfs(target[i].x, target[i].y);
 		if(flag) {
@@ -81,5 +83,6 @@ int main() {
 		}
 	}
 	cout<<"NO";
+	
 	return 0;
 }
